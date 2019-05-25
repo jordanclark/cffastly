@@ -221,7 +221,7 @@ component {
 			this.debugLog( out );
 		}
 		cftimer( type="debug", label="fastly request" ) {
-			cfhttp( charset="UTF-8", throwOnError=false, userAgent=this.userAgent, url=out.requestUrl, timeOut=this.httpTimeOut, result="response", method=out.verb ) {
+			cfhttp( result="http", method=out.verb, url=out.requestUrl, throwOnError=false, userAgent=this.userAgent, timeOut=this.httpTimeOut, charset="UTF-8" ) {
 				cfhttpparam( name="Fastly-Key", type="header", value=this.token );
 				cfhttpparam( name="Accept", type="header", value="application/json" );
 				if ( out.verb == "POST" || out.verb == "PUT" || out.verb == "PATCH" ) {
@@ -234,15 +234,15 @@ component {
 			}
 		}
 		// this.debugLog( response );
-		out.response= toString( response.fileContent );
+		out.response= toString( http.fileContent );
 		if ( this.debug ) {
 			this.debugLog( out.response );
 		}
 		//  RESPONSE CODE ERRORS 
-		if ( !structKeyExists( response, "responseHeader" ) || !structKeyExists( response.responseHeader, "Status_Code" ) || response.responseHeader.Status_Code == "" ) {
+		if ( !structKeyExists( response, "responseHeader" ) || !structKeyExists( http.responseHeader, "Status_Code" ) || http.responseHeader.Status_Code == "" ) {
 			out.statusCode= 500;
 		} else {
-			out.statusCode= response.responseHeader.Status_Code;
+			out.statusCode= http.responseHeader.Status_Code;
 		}
 		this.debugLog( out.statusCode );
 		if ( left( out.statusCode, 1 ) == 4 || left( out.statusCode, 1 ) == 5 ) {
