@@ -10,6 +10,9 @@ component {
 		this.defaultVersion= "";
 		this.defaultPoolID= "";
 		this.userAgent= "fastly-cfml-api-client/1.6.1";
+		if ( structKeyExists( request, "debug" ) && request.debug == true ) {
+			this.debug = request.debug;
+		}
 		return this;
 	}
 
@@ -179,7 +182,7 @@ component {
 	}
 
 	struct function apiRequest(required string api) {
-		var response= {};
+		var http= {};
 		var item= "";
 		var out= {
 			args= arguments
@@ -280,14 +283,14 @@ component {
 	}
 
 	function debugLog(required input) {
-		if ( structKeyExists( request, "trace" ) && isCustomFunction( request.trace ) ) {
+		if ( structKeyExists( request, "log" ) && isCustomFunction( request.log ) ) {
 			if ( isSimpleValue( arguments.input ) ) {
-				request.trace( "fastly: " & arguments.input );
+				request.log( "fastly: " & arguments.input );
 			} else {
-				request.trace( "fastly: (complex type)" );
-				request.trace( arguments.input );
+				request.log( "fastly: (complex type)" );
+				request.log( arguments.input );
 			}
-		} else {
+		} else if ( this.debug ) {
 			cftrace( text=( isSimpleValue( arguments.input ) ? arguments.input : "" ), var=arguments.input, category="fastly", type="information" );
 		}
 		return;
