@@ -1,0 +1,31 @@
+{
+	"name":"CFFastly",
+    "slug":"cffastly",
+	"version":"0.5.0",
+    "location":"https://github.com/jordanclark/cffastly/archive/master.zip",
+    "author":"Jordan Clark",
+    "homepage":"https://github.com/jordanclark/cffastly",
+    "keywords":["fastly","fastly.net","cdn","api","rest"],
+    "license":[
+        {
+            "type":"Apache-2.0",
+            "URL":"https://github.com/jordanclark/cffastly/blob/master/LICENSE"
+        }
+    ],
+    "shortDescription":"API client for fastly.net CDN",
+    "description":"Fastly.net is a pretty cool cdn that gives you a lot of control and flexibility to speeding up content delivery. I created this api mostly to automate cache flushes and configuration of server pools.",
+    "private":false,
+    "projectURL":"",
+    "repository":{
+        "type":"GIT",
+        "URL":"https://github.com/jordanclark/cffastly.git"
+    },
+    "ignore":[
+        "**/.*",
+        "/test/",
+        "/tests/"
+    ],
+    "scripts":{},
+    "type":"module",
+    "version":"0.5.0"
+}
