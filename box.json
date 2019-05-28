@@ -1,17 +1,31 @@
 {
-	"name":"cffastly",
+    "name":"cffastly",
     "slug":"cffastly",
-	"version":"0.5.0",
+    "version":"0.5.1",
     "author":"Jordan Clark <jordanclark@gmail.com>",
-    "keywords":["fastly","fastly.net","cdn","api","rest"],
+    "keywords":[
+        "fastly",
+        "fastly.net",
+        "cdn",
+        "api",
+        "rest"
+    ],
     "shortDescription":"API client for fastly.net CDN",
-	"description":"Fastly.net is a pretty cool cdn that gives you a lot of control and flexibility to speeding up content delivery. I created this api mostly to automate cache flushes and configuration of server pools.",
+    "description":"Fastly.net is a pretty cool cdn that gives you a lot of control and flexibility to speeding up content delivery. I created this api mostly to automate cache flushes and configuration of server pools.",
     "type":"modules",
-    "location":"jordanclark/cffastly#v0.5.0",
-    "repository":{"URL":"https://github.com/jordanclark/cffastly.git","type":"GIT"},
-	"homepage":"https://github.com/jordanclark/cffastly",
-	"bugs":"https://github.com/jordanclark/cffastly/issues",
-    "license":[{"type":"Apache-2.0","URL":"https://github.com/jordanclark/cffastly/blob/master/LICENSE"}],
+    "location":"jordanclark/cfaftership#v0.5.1",
+    "repository":{
+        "URL":"https://github.com/jordanclark/cffastly.git",
+        "type":"GIT"
+    },
+    "homepage":"https://github.com/jordanclark/cffastly",
+    "bugs":"https://github.com/jordanclark/cffastly/issues",
+    "license":[
+        {
+            "type":"Apache-2.0",
+            "URL":"https://github.com/jordanclark/cffastly/blob/master/LICENSE"
+        }
+    ],
     "private":false,
     "ignore":[
         "**/.*",
