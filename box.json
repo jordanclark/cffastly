@@ -1,5 +1,5 @@
 {
-	"name":"CFFastly",
+	"name":"cffastly",
     "slug":"cffastly",
 	"version":"0.5.0",
     "author":"Jordan Clark <jordanclark@gmail.com>",
@@ -7,7 +7,7 @@
     "shortDescription":"API client for fastly.net CDN",
 	"description":"Fastly.net is a pretty cool cdn that gives you a lot of control and flexibility to speeding up content delivery. I created this api mostly to automate cache flushes and configuration of server pools.",
     "type":"modules",
-    "location":"https://github.com/jordanclark/cffastly/archive/master.zip",
+    "location":"jordanclark/cffastly#v0.5.0",
     "repository":{"URL":"https://github.com/jordanclark/cffastly.git","type":"GIT"},
 	"homepage":"https://github.com/jordanclark/cffastly",
 	"bugs":"https://github.com/jordanclark/cffastly/issues",
@@ -18,4 +18,9 @@
         "/test/",
         "/tests/"
     ],
+    "scripts":{
+        "postVersion":"package set location='jordanclark/cfaftership#v`package version`'",
+        "onRelease":"publish",
+        "postPublish":"!git push --follow-tags"
+    }
 }
