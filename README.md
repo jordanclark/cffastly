@@ -9,5 +9,12 @@
 # cffastly
 Fastly.net ColdFusion Rest API Client
 
-# API documentation
+## To Install
+Run the following from commandbox:
+`box install cffastly`
+
+## Changes
+2019-05-29 Open source release
+
+## API documentation
 https://docs.fastly.com/api/
