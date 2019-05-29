@@ -1,4 +1,4 @@
-# fastly
+# cffastly
 Fastly.net ColdFusion Rest API Client
 
 # API documentation

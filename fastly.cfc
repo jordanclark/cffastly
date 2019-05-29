@@ -211,7 +211,7 @@ component {
 			}
 		}
 		if ( out.verb == "GET" ) {
-			out.requestUrl &= structToQueryString( out.args, true );
+			out.requestUrl &= this.structToQueryString( out.args, true );
 		} else if ( !structIsEmpty( out.args ) ) {
 			out.body= serializeJSON( out.args );
 		}
@@ -238,17 +238,10 @@ component {
 				}
 			}
 		}
-		// this.debugLog( response );
+		// this.debugLog( http );
 		out.response= toString( http.fileContent );
-		if ( this.debug ) {
-			this.debugLog( out.response );
-		}
-		//  RESPONSE CODE ERRORS 
-		if ( !structKeyExists( response, "responseHeader" ) || !structKeyExists( http.responseHeader, "Status_Code" ) || http.responseHeader.Status_Code == "" ) {
-			out.statusCode= 500;
-		} else {
-			out.statusCode= http.responseHeader.Status_Code;
-		}
+		// this.debugLog( out.response );
+		out.statusCode = http.responseHeader.Status_Code ?: 500;
 		this.debugLog( out.statusCode );
 		if ( left( out.statusCode, 1 ) == 4 || left( out.statusCode, 1 ) == 5 ) {
 			out.success= false;
