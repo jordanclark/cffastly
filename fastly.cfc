@@ -1,18 +1,20 @@
 component {
 	cfprocessingdirective( preserveCase=true );
 
-	function init(required string token, required string apiUrl= "https://api.fastly.com", numeric timeout= 120, boolean debug= false ) {
+	function init(
+		required string token
+	,	string apiUrl= "https://api.fastly.com"
+	,	numeric httpTimeOut= 120
+	,	boolean debug= ( request.debug ?: false )
+	) {
 		this.token= arguments.token;
 		this.apiUrl= arguments.apiUrl;
-		this.httpTimeOut = arguments.timeout;
+		this.httpTimeOut = arguments.httpTimeOut;
 		this.debug= arguments.debug;
 		this.defaultServiceID= "";
 		this.defaultVersion= "";
 		this.defaultPoolID= "";
 		this.userAgent= "fastly-cfml-api-client/1.6.1";
-		if ( structKeyExists( request, "debug" ) && request.debug == true ) {
-			this.debug = request.debug;
-		}
 		return this;
 	}
 
