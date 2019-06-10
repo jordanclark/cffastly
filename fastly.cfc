@@ -198,9 +198,9 @@ component {
 		};
 		out.requestUrl &= listRest( out.args.api, " " );
 		structDelete( out.args, "api" );
-		//  replace {var} in url 
+		// replace {var} in url 
 		for ( item in out.args ) {
-			//  strip NULL values 
+			// strip NULL values 
 			if ( isNull( out.args[ item ] ) ) {
 				structDelete( out.args, item );
 			} else if ( isSimpleValue( arguments[ item ] ) && arguments[ item ] == "null" ) {
@@ -230,7 +230,7 @@ component {
 				cfhttpparam( name="Fastly-Key", type="header", value=this.token );
 				cfhttpparam( name="Accept", type="header", value="application/json" );
 				if ( out.verb == "POST" || out.verb == "PUT" || out.verb == "PATCH" ) {
-					//  OR out.verb IS "PURGE"
+					// OR out.verb IS "PURGE"
 					cfhttpparam( name="Content-Type", type="header", value="application/json" );
 				}
 				if ( structKeyExists( out, "body" ) ) {
@@ -251,7 +251,7 @@ component {
 		} else if ( left( out.statusCode, 1 ) == 2 ) {
 			out.success= true;
 		}
-		//  parse response 
+		// parse response 
 		if ( !len( out.error ) ) {
 			try {
 				out.response= deserializeJSON( out.response );
