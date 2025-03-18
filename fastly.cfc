@@ -19,8 +19,8 @@ component {
 		return this;
 	}
 
-	struct function getServices() {
-		return this.apiRequest( api= "GET /service" );
+	struct function getServices(direction="ascend", numeric page, numeric per_page=20, string sort="created") {
+		return this.apiRequest( api= "GET /service", argumentCollection= arguments );
 	}
 
 	function getService(required string id= this.defaultServiceID) {
@@ -306,9 +306,9 @@ component {
 			if ( !isNull( stInput[ sItem ] ) ) {
 				sValue= stInput[ sItem ];
 				if ( bEncode ) {
-					sOutput &= amp & sItem & "=" & urlEncodedFormat( sValue );
+					sOutput &= amp & lcase(sItem) & "=" & urlEncodedFormat( sValue );
 				} else {
-					sOutput &= amp & sItem & "=" & sValue;
+					sOutput &= amp & lcase(sItem) & "=" & sValue;
 				}
 				amp= "&";
 			}
